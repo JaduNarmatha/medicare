@@ -502,8 +502,8 @@ footer {
       border-radius: var(--border-radius);
       margin-left: auto;
       align-items: center;
-      transition: transform var(--transition-speed),
-        background-color var(--transition-speed);
+      transition: transform var(--transition-speed);
+      background-color: var(--transition-speed);
     }
 
     #menu-toggle {
@@ -762,4 +762,89 @@ footer {
   100% {
     transform: scale(1);
   }
+}
+/* Mobile and tablet-specific styling */
+@media (max-width: 900px) {
+  .nav-links {
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: -250px;
+    width: 200px;
+    padding: 20px;
+    background-color: var(--background-color);
+    transition: right var(--transition-speed) ease-in-out;
+    z-index: 1000;
+  }
+
+  #menu-toggle:checked ~ .nav-links {
+    right: 0; /* Slide in the menu when the menu icon is clicked */
+  }
+
+  .nav-links li {
+    margin-right: 0;
+    margin-bottom: var(--margin);
+    padding: 10px 0;
+    text-align: center;
+  }
+
+  .menu-icon {
+    display: block;
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: var(--border-radius);
+    margin-left: auto;
+    align-items: center;
+    transition: transform var(--transition-speed),
+      background-color var(--transition-speed);
+  }
+
+  /* Hide the menu toggle checkbox */
+  #menu-toggle {
+    display: none;
+  }
+}
+
+/* Tablet landscape and larger screen styling */
+@media (min-width: 901px) {
+  .nav-links {
+    flex-direction: row;
+    position: static;
+    top: auto;
+    right: auto;
+    width: auto;
+    background-color: transparent;
+    padding: 0;
+  }
+
+  .nav-links li {
+    margin-right: var(--nav-margin);
+    padding: var(--padding);
+  }
+
+  .menu-icon {
+    display: none; /* Hide the menu icon on larger screens */
+  }
+}
+
+/* Main styling for all screens */
+.nav-links a {
+  text-decoration: none;
+  color: var(--font-color);
+  transition: color var(--transition-speed), transform var(--transition-speed);
+}
+
+.nav-links a:hover {
+  color: var(--primary-color);
+  transform: scale(1.1);
+  font-weight: 500;
+  font-style: italic;
+}
+
+.nav-link.active {
+  color: var(--primary-color);
+  font-weight: 600;
+  font-style: italic;
 }
