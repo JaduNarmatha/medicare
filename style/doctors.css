@@ -235,7 +235,9 @@
   }
 
   .doctor-card {
-    width: 100%;
-    max-width: 350px;
+    margin: auto;
+    max-width: 400px;
+    background-color: var(--background-color);
+    align-items: center;
   }
 }

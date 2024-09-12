@@ -379,15 +379,15 @@ footer {
 
 /* Individual Image Size Controls */
 .gallery-item.large img {
-  height: 300px; /* Large images will have a fixed height of 300px */
+  height: 400px; /* Large images will have a fixed height of 300px */
 }
 
 .gallery-item.medium img {
-  height: 200px; /* Medium images will have a fixed height of 200px */
+  height: 300px; /* Medium images will have a fixed height of 200px */
 }
 
 .gallery-item.small img {
-  height: 150px; /* Small images will have a fixed height of 150px */
+  height: 200px; /* Small images will have a fixed height of 150px */
 }
 
 .overlay {
@@ -847,4 +847,45 @@ footer {
   color: var(--primary-color);
   font-weight: 600;
   font-style: italic;
+}
+/* Mobile for contacts*/
+@media (max-width: 900px) {
+  .contacts-container {
+    flex-direction: column; /* Stack boxes vertically */
+    gap: var(--small-margin); /* Smaller gap on mobile */
+  }
+
+  .contacts {
+    margin-bottom: var(--margin); /* Add margin between stacked boxes */
+  }
+}
+/* Responsive for footer */
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column; /* Stack sections vertically */
+    padding: 15px;
+  }
+
+  .footer-section {
+    margin-bottom: var(--small-margin); /* Add spacing between sections */
+  }
+
+  .footer-section form {
+    flex-direction: column; /* Stack email input and button */
+    padding: 15px;
+  }
+
+  .footer-section input[type="email"] {
+    margin-bottom: var(--small-margin); /* Add space between input and button */
+  }
+
+  .footer-bottom {
+    flex-direction: column; /* Stack the footer-bottom content */
+    text-align: center;
+  }
+
+  .footer-social-icons a {
+    font-size: 20px; /* Increase icon size for mobile */
+    margin-bottom: var(--small-margin);
+  }
 }

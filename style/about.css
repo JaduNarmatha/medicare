@@ -159,67 +159,71 @@ p {
 .table-row:last-child {
   border-bottom: none;
 }
-/* Branch Section */
-.branch {
-  margin-bottom: 40px;
-  box-shadow: var(--box-shadow);
-  border-radius: var(--border-radius);
-  overflow: hidden;
-  color: var(--font-color);
-}
-
-.branch-info {
-  padding: var(--padding);
-  margin-bottom: 20px;
-}
-
-.branch-layout {
+/*brances*/
+.branches {
   display: flex;
-  flex-direction: column; /* Stacked by default for mobile */
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: var(--nav-margin);
 }
 
+/* Branch Container */
+.branch {
+  flex: 1 1 calc(33.333% - var(--nav-margin));
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-color);
+  border: 1px solid var(--secondary-color);
+  border-radius: var(--border-radius);
+  padding: var(--padding);
+  margin-bottom: var(--nav-margin);
+  box-shadow: var(--box-shadow);
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+  overflow: hidden;
+}
+
+.branch:hover {
+  transform: scale(1.05);
+  box-shadow: var(--box-shadow-hover);
+}
+
+/* Branch Info */
+.branch-info h2 {
+  color: var(--primary-color);
+  margin-bottom: 10px;
+  font-size: 1.5em;
+}
+
+.branch-info p {
+  line-height: 1.6;
+  color: var(--text-color);
+  font-size: 1em;
+}
+
+/* Branch Map */
 .branch-map iframe {
-  width: 400px;
-  height: 600px;
+  max-width: 100%;
+  border-radius: var(--border-radius);
   border: 0;
 }
 
-.gallery {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+/* Responsive Styles for brances*/
+@media (max-width: 1024px) {
+  .branch {
+    flex: 1 1 calc(50% - var(--nav-margin));
+  }
 }
 
-
-/* Responsive Layout */
-@media (min-width: 768px) {
-  .branch-layout {
-    flex-direction: row; /* Side by side on larger screens */
-    gap: 20px;
+@media (max-width: 768px) {
+  .branch {
+    flex: 1 1 100%;
   }
 
   .branch-map iframe {
-    width: 50%; /* Map takes half the width */
-    height: 400px;
-  }
-
-  .gallery {
-    width: 50%; /* Gallery takes the other half */
-  }
-
-  .gallery img {
-    width: 48%; /* Two images per row */
+    width: 100%;
+    height: auto;
   }
 }
-
-
-
-
-
-
-
-
-
 
 /*MOBILE STYLES*/
 /* Mobile View branch flex boxes */
